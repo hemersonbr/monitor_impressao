@@ -70,7 +70,6 @@ def imprimir_pdf(caminho_do_arquivo):
 
 def verificar_e_imprimir_emails():
     """Conecta ao e-mail, baixa anexos PDF e os imprime."""
-    app_log.info(f"Verificando a caixa de entrada de '{EMAIL_ADDRESS}'...")
 
     try:
         mail = imaplib.IMAP4_SSL(IMAP_SERVER)
@@ -82,7 +81,6 @@ def verificar_e_imprimir_emails():
         if status == 'OK':
             email_ids = data[0].split()
             if not email_ids:
-                app_log.info("Nenhum e-mail novo encontrado.")
                 return
 
             app_log.info(f"Encontrados {len(email_ids)} novos e-mails.")
